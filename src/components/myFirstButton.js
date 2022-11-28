@@ -1,12 +1,16 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Pressable, StyleSheet, Text, TouchableOpacity } from "react-native";
 
-export default function MyFirstButton() { 
+export default function MyFirstButton(props) { 
 
-
+  function randomSong(){
+    var words = ["Yellow", "purple", "green","Rock", 'Paper', 'Scissor']
+    var word = words[Math.floor(Math.random()*words.length)]
+    console.log("Random word is: " + word)
+  }
   return (
-    <TouchableOpacity style={styles.buttonStyle}>
-      <Text style={styles.textStyle}>Look It's a Button!</Text>
-    </TouchableOpacity>
+    <Pressable style={styles.buttonStyle} onPress={randomSong}>
+      <Text style={styles.textStyle}>{props.details}</Text>
+    </Pressable>
   );
 }
 

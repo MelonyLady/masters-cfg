@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import MyFirstButton from './myFirstButton';
+import MyFirstButton from './src/components/myFirstButton';
 
 export default function App() {
   return (
@@ -15,7 +15,7 @@ export default function App() {
       <Text></Text>
       <Text></Text>
       <Text></Text>
-      <MyFirstButton></MyFirstButton>
+      <MyFirstButton details= "Im the best button"></MyFirstButton>
       <StatusBar style="auto" />
     </View>
   );
