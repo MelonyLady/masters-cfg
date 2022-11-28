@@ -16,6 +16,7 @@ export default function App() {
       <Text></Text>
       <Text></Text>
       <MyFirstButton details= "Im the best button"></MyFirstButton>
+      
       <StatusBar style="auto" />
     </View>
   );
