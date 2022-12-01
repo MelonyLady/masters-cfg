@@ -1,51 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import MyFirstButton from './src/components/myFirstButton';
+
+import HomeScreen from './src/screens/homescreen';
+import AboutUsScreen from './src/screens/AboutUsScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
+  
   return (
-    <View style={styles.container}>
-      <Text style={styles.textHeader}>It's my app I'll do what I want to</Text>
-      <Text></Text>
-      <Text></Text>
-      <Text style={styles.textSubheader}>Time to make my first App!</Text>
-      <Text></Text>
-      <Text></Text>
-      <Text style={styles.text}>Woohoo!</Text>
-      <Text></Text>
-      <Text></Text>
-      <Text></Text>
-      <MyFirstButton details= "Im the best button"></MyFirstButton>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ title: 'Welcome' }}
+        />
+        <Stack.Screen name="AboutUs" component={AboutUsScreen} />
+      </Stack.Navigator>
       
-      <StatusBar style="auto" />
-    </View>
+    </NavigationContainer>
+     
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#003b49',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  textHeader: {
-    color: '#be84a3',
-    fontWeight: 'bold',
-    fontSize: 26,
-    textDecorationLine: 'underline',
-    lineHeight: 30
-    
-    },
-  textSubheader: {
-    color: '#be84a3',
-    fontStyle: 'italic',
-    fontSize: 22,
-    lineHeight: 33
-      },
-  text: {
-    color: '#be84a3',
-    fontStyle: 'normal',
-    fontSize: 19,
-      }
-});

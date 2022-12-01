@@ -1,25 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import MyFirstButton from '../components/myFirstButton';
 
-export default function App() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.textHeader}>It's my app I'll do what I want to</Text>
-        <Text></Text>
-        <Text></Text>
-        <Text style={styles.textSubheader}>Time to make my first App!</Text>
-        <Text></Text>
-        <Text></Text>
-        <Text style={styles.text}>Woohoo!</Text>
-        <Text></Text>
-        <Text></Text>
-        <Text></Text>
-        <MyFirstButton details= "Im the best button"></MyFirstButton>
-        
-        <StatusBar style="auto" />
-      </View>
-    );
-  }
+export default function HomeScreen({ navigation }) {
+
+return (
+  <View style={styles.container}>
+    <Text style={styles.textHeader}>Generic Home Page</Text>
+    <Text></Text>
+    <MyFirstButton details= "I'm the best button!"></MyFirstButton>
+    
+    <Button
+    title="Go to About us"
+    onPress={() =>
+      navigation.navigate('AboutUs', {name: 'Woo!'})
+    }
+  />
+    <StatusBar style="auto" />
+  </View>
+);
+}
   
   const styles = StyleSheet.create({
     container: {
