@@ -1,12 +1,15 @@
 
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, TabRouter } from '@react-navigation/native';
 import AboutUsScreen from './src/screens/AboutUsScreen';
 import HomeScreen from './src/screens/homescreen';
 // import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ThirdScreen from './src/screens/Screen3';
 import FourthScreen from './src/screens/Screen4';
-import { createBottomTabNavigator, createAppContainer} from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/Ionicons'; 
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from "@expo/vector-icons";
+import { createAppContainer } from "react-navigation";
+import React from "react";
+
 
 
 // const Stack = createNativeStackNavigator();
@@ -29,29 +32,58 @@ import Icon from 'react-native-vector-icons/Ionicons';
 //   );
 // }
 
-const Tab = createBottomTabNavigator();
+// const Tab = createBottomTabNavigator();
 
 
-export default function App() {
+// export default function App() {
 
-  return (
-    <NavigationContainer>
-      <Tab.Navigator
-         screenOptions={{
-          tabBarStyle: { position: 'absolute' },
-          tabBarActiveTintColor: '#be84a3',
-        }}>
+//   return (
+//     <NavigationContainer>
+//       <Tab.Navigator
+//          screenOptions={{
+//           tabBarStyle: { position: 'absolute' },
+//           tabBarActiveTintColor: '#be84a3',
+          
+          
+//         }}>
 
-        <Tab.Screen 
-          name ="Home" 
-          component = {HomeScreen}
-          Icon= "ios-home" size ={25}
+//         <Tab.Screen name ="Home" component = {HomeScreen}/>
+
+//           <Tab.Screen name="About Us" component={AboutUsScreen} />
+//           <Tab.Screen name="Third Screen" component={ThirdScreen} />
+//           <Tab.Screen name="Fourth Screen" component={FourthScreen} />
+//       </Tab.Navigator>
+//     </NavigationContainer>
+//   );
+// }
+
+const TabNavigator = createBottomTabNavigator({
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: {
+      tabBarLabel: "Home",
+      tabBarOptions: {
+        activeTintColor: "#be84a3",
+      },
+      tabBarIcon: (tabInfo) => {
+        return (
+          <Ionicons
+            name="md-home"
+            size={24}
+            color={tabInfo.focused ? "#006600" : "#8e8e93"}
           />
+        );
+      },
+    },
+  },
+});
 
-          <Tab.Screen name="About Us" component={AboutUsScreen} />
-          <Tab.Screen name="Third Screen" component={ThirdScreen} />
-          <Tab.Screen name="Fourth Screen" component={FourthScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
+  const Navigator = createAppContainer(TabNavigator);
+  
+export default function App() {
+  return (
+    <Navigator>
+      <HomeScreen />
+    </Navigator>
   );
 }
