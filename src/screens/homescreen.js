@@ -9,13 +9,13 @@ return (
     <Text style={styles.textHeader}>Generic Home Page</Text>
     <Text></Text>
     <MyFirstButton details= "I'm the best button!"></MyFirstButton>
-    
+{/*     
     <Button
     title="Go to About us"
     onPress={() =>
       navigation.navigate('AboutUs', {name: 'Woo!'})
     }
-  />
+  /> */}
     <StatusBar style="auto" />
   </View>
 );
