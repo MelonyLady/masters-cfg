@@ -4,7 +4,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import MyFirstButton from '../components/myFirstButton';
 
 
-class ThirdScreen extends React.Component {
+class FourthScreen extends React.Component {
 
   constructor(){
     super()
@@ -27,11 +27,11 @@ class ThirdScreen extends React.Component {
   render(){
   return (
     <View style={styles.container}>
-      <Text style={styles.textHeader}>I am Screen 3</Text>
-      <Text style={styles.textSubheader}>Someday I will do something</Text>
+      <Text style={styles.textHeader}>I am Screen 4</Text>
+      <Text style={styles.textSubheader}>Will I have meaning?</Text>
       <Text></Text>
       <Text></Text>
-      <MyFirstButton details= "I can be whatever you want"></MyFirstButton>
+      <MyFirstButton details= "Maybe I will create a new button"></MyFirstButton>
       <Text></Text>
         <StatusBar style="auto" />
     </View>
@@ -67,4 +67,4 @@ class ThirdScreen extends React.Component {
         }
   });
 
-  export default ThirdScreen;
+  export default FourthScreen;
