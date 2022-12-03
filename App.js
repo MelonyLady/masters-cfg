@@ -5,7 +5,7 @@ import HomeScreen from './src/screens/homescreen';
 // import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ThirdScreen from './src/screens/Screen3';
 import FourthScreen from './src/screens/Screen4';
-import { createBottomTabNavigator, BottomTabBarHeightContext } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator, createAppContainer} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons'; 
 
 
@@ -40,14 +40,12 @@ export default function App() {
          screenOptions={{
           tabBarStyle: { position: 'absolute' },
           tabBarActiveTintColor: '#be84a3',
-          tabBarIcon:({tintColor}) => (
-            <Icon name= "ios-home" color={tintColor} size ={25} />
-          )
         }}>
 
         <Tab.Screen 
           name ="Home" 
           component = {HomeScreen}
+          Icon= "ios-home" size ={25}
           />
 
           <Tab.Screen name="About Us" component={AboutUsScreen} />
