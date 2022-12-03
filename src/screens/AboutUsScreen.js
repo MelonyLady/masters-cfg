@@ -64,12 +64,12 @@ class AboutUsScreen extends React.Component {
       <Button title= "About Us" color = "#003b49">
       <Text></Text>
       </Button>
-      <Button
+      {/* <Button
       title= "go to Home Screen"
       onPress={() =>
         this.props.navigation.navigate('Home')
       }
-      />
+      /> */}
         <StatusBar style="auto" />
     </View>
   )}
