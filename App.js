@@ -3,9 +3,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import AboutUsScreen from './src/screens/AboutUsScreen';
 import HomeScreen from './src/screens/homescreen';
 // import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ThirdScreen from './src/screens/Screen3';
 import FourthScreen from './src/screens/Screen4';
+import { createBottomTabNavigator, BottomTabBarHeightContext } from '@react-navigation/bottom-tabs';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 
 // const Stack = createNativeStackNavigator();
@@ -30,6 +31,7 @@ import FourthScreen from './src/screens/Screen4';
 
 const Tab = createBottomTabNavigator();
 
+
 export default function App() {
 
   return (
@@ -37,8 +39,14 @@ export default function App() {
       <Tab.Navigator
          screenOptions={{
           tabBarStyle: { position: 'absolute' },
+          tabBarActiveTintColor: '#be84a3',
         }}>
-        <Tab.Screen name ="Home" component = {HomeScreen} />
+
+        <Tab.Screen 
+          name ="Home" 
+          component = {HomeScreen}
+          />
+
           <Tab.Screen name="About Us" component={AboutUsScreen} />
           <Tab.Screen name="Third Screen" component={ThirdScreen} />
           <Tab.Screen name="Fourth Screen" component={FourthScreen} />
