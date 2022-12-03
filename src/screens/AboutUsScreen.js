@@ -61,9 +61,6 @@ class AboutUsScreen extends React.Component {
       <Text></Text>
       <MyFirstButton details= "Im another button"></MyFirstButton>
       <Text></Text>
-      <Button title= "About Us" color = "#003b49">
-      <Text></Text>
-      </Button>
       {/* <Button
       title= "go to Home Screen"
       onPress={() =>
