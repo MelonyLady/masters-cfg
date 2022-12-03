@@ -43,9 +43,10 @@ export default function App() {
          screenOptions={{
           tabBarStyle: { position: 'absolute',
             height: 60,
-            backgroundColor: '#6C528C'
+            backgroundColor: '#A991C8'
         },
-          tabBarActiveTintColor: '#be84a3',
+          tabBarActiveTintColor: 'black',
+          tabBarInactiveTintColor: '#0C14A2',
           
           
         }}>
