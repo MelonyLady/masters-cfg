@@ -47,15 +47,12 @@ export default function App() {
         },
           tabBarActiveTintColor: 'black',
           tabBarInactiveTintColor: '#0C14A2',
-          
-          
         }}>
 
         <Tab.Screen name ="Home" component = {HomeScreen}/>
-
-          <Tab.Screen name="About Us" component={AboutUsScreen} />
-          <Tab.Screen name="Third Screen" component={ThirdScreen} />
-          <Tab.Screen name="Fourth Screen" component={FourthScreen} />
+        <Tab.Screen name="About Us" component={AboutUsScreen} />
+        <Tab.Screen name="Third Screen" component={ThirdScreen} />
+        <Tab.Screen name="Fourth Screen" component={FourthScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
