@@ -6,8 +6,7 @@ import HomeScreen from './src/screens/homescreen';
 import ThirdScreen from './src/screens/Screen3';
 import FourthScreen from './src/screens/Screen4';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from "@expo/vector-icons";
-import { createAppContainer } from "react-navigation";
+import Icon from 'react-native-vector-icons/FontAwesome';
 import React from "react";
 
 
@@ -34,7 +33,6 @@ import React from "react";
 
 const Tab = createBottomTabNavigator();
 
-
 export default function App() {
 
   return (
@@ -49,7 +47,7 @@ export default function App() {
           tabBarInactiveTintColor: '#0C14A2',
         }}>
 
-        <Tab.Screen name ="Home" component = {HomeScreen}/>
+        <Tab.Screen name ="Home" component = {HomeScreen} Icon= "home"/>
         <Tab.Screen name="About Us" component={AboutUsScreen} />
         <Tab.Screen name="Third Screen" component={ThirdScreen} />
         <Tab.Screen name="Fourth Screen" component={FourthScreen} />
