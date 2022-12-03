@@ -59,24 +59,17 @@ import React from "react";
 
 const TabNavigator = createBottomTabNavigator({
   Home: {
-    screen: HomeScreen,
-    navigationOptions: {
-      tabBarLabel: "Home",
-      tabBarOptions: {
-        activeTintColor: "#be84a3",
-      },
-      tabBarIcon: (tabInfo) => {
-        return (
-          <Ionicons
-            name="md-home"
-            size={24}
-            color={tabInfo.focused ? "#006600" : "#8e8e93"}
+    screen:HomeScreen,  
+        navigationOptions:{  
+          tabBarLabel:'Home',  
+          tabBarIcon:({tintColor})=>(  
+              <Icon name="ios-home" color={tintColor} size={25}
           />
-        );
+        )
       },
     },
   },
-});
+);
 
   const Navigator = createAppContainer(TabNavigator);
   
