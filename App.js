@@ -6,7 +6,7 @@ import HomeScreen from './src/screens/homescreen';
 import ThirdScreen from './src/screens/Screen3';
 import FourthScreen from './src/screens/Screen4';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Ionic from 'react-native-vector-icons/Ionicons';
 import React from "react";
 
 
@@ -38,14 +38,29 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-         screenOptions={{
+         screenOptions={({route}) => ({
           tabBarStyle: { position: 'absolute',
             height: 60,
             backgroundColor: '#A991C8'
         },
           tabBarActiveTintColor: 'black',
           tabBarInactiveTintColor: '#0C14A2',
-        }}>
+          tabBarIcon: ({focused, size, colour}) => {
+            let iconName;
+            if (route.name ==="Home"){
+              iconName = focused ? "ios-home" : "ios-home-outline";
+            } else if (route.name ==="About Us"){
+              iconName = focused ? "disc" : "disc-outline";
+            } else if (route.name ==="Third Screen"){
+              iconName = focused ? "flower-sharp" : "flower-outline";
+            } else if (route.name ==="Fourth Screen"){
+              iconName = focused ? "happy" : "happy-outline";
+            }
+            return <Ionic name={iconName} size={size} colour={colour}/>
+          },
+          
+          
+        })}>
 
         <Tab.Screen name ="Home" component = {HomeScreen} Icon= "home"/>
         <Tab.Screen name="About Us" component={AboutUsScreen} />
