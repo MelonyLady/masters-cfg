@@ -35,48 +35,24 @@ import React from "react";
 // const Tab = createBottomTabNavigator();
 
 
-// export default function App() {
-
-//   return (
-//     <NavigationContainer>
-//       <Tab.Navigator
-//          screenOptions={{
-//           tabBarStyle: { position: 'absolute' },
-//           tabBarActiveTintColor: '#be84a3',
-          
-          
-//         }}>
-
-//         <Tab.Screen name ="Home" component = {HomeScreen}/>
-
-//           <Tab.Screen name="About Us" component={AboutUsScreen} />
-//           <Tab.Screen name="Third Screen" component={ThirdScreen} />
-//           <Tab.Screen name="Fourth Screen" component={FourthScreen} />
-//       </Tab.Navigator>
-//     </NavigationContainer>
-//   );
-// }
-
-const TabNavigator = createBottomTabNavigator({
-  Home: {
-    screen:HomeScreen,  
-        navigationOptions:{  
-          tabBarLabel:'Home',  
-          tabBarIcon:({tintColor})=>(  
-              <Icon name="ios-home" color={tintColor} size={25}
-          />
-        )
-      },
-    },
-  },
-);
-
-  const Navigator = createAppContainer(TabNavigator);
-  
 export default function App() {
+
   return (
-    <Navigator>
-      <HomeScreen />
-    </Navigator>
+    <NavigationContainer>
+      <Tab.Navigator
+         screenOptions={{
+          tabBarStyle: { position: 'absolute' },
+          tabBarActiveTintColor: '#be84a3',
+          
+          
+        }}>
+
+        <Tab.Screen name ="Home" component = {HomeScreen}/>
+
+          <Tab.Screen name="About Us" component={AboutUsScreen} />
+          <Tab.Screen name="Third Screen" component={ThirdScreen} />
+          <Tab.Screen name="Fourth Screen" component={FourthScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
