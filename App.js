@@ -32,7 +32,7 @@ import React from "react";
 //   );
 // }
 
-// const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 
 export default function App() {
@@ -41,7 +41,10 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator
          screenOptions={{
-          tabBarStyle: { position: 'absolute' },
+          tabBarStyle: { position: 'absolute',
+            height: 60,
+            backgroundColor: '#6C528C'
+        },
           tabBarActiveTintColor: '#be84a3',
           
           
