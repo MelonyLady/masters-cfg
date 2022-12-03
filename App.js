@@ -34,7 +34,10 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+         screenOptions={{
+          tabBarStyle: { position: 'absolute' },
+        }}>
         <Tab.Screen name ="Home" component = {HomeScreen} />
           <Tab.Screen name="About Us" component={AboutUsScreen} />
           <Tab.Screen name="Third Screen" component={ThirdScreen} />
