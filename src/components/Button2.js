@@ -10,6 +10,10 @@ export default function Button2(props) {
     console.log("Button2 component mounted successfully")
   },[])
 
+  useEffect(() =>{
+    console.log(`Count was updated to ${count}`)
+  }, [count])
+
   function randomSong(){
     var words = ["Cat", "dog", "green","dragon", 'unicorn', 'beaver']
     var word = words[Math.floor(Math.random()*words.length)]
