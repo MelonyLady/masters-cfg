@@ -1,11 +1,14 @@
 import { Pressable, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 export default function Button2(props) { 
 
   const [generatedWord, setGeneratedWord] = useState(props.details)
   const [count, setCount] = useState(0)
 
+  useEffect(() => {
+    console.log("Button2 component mounted successfully")
+  })
 
   function randomSong(){
     var words = ["Cat", "dog", "green","dragon", 'unicorn', 'beaver']
