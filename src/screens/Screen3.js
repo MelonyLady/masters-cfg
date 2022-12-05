@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import MyFirstButton from '../components/myFirstButton';
+import Button2 from '../components/Button2';
 
 
 class ThirdScreen extends React.Component {
@@ -31,7 +31,7 @@ class ThirdScreen extends React.Component {
       <Text style={styles.textSubheader}>Someday I will do something</Text>
       <Text></Text>
       <Text></Text>
-      <MyFirstButton details= "I can be whatever you want"></MyFirstButton>
+      <Button2 details= "I can be whatever you want"></Button2>
       <Text></Text>
         <StatusBar style="auto" />
     </View>

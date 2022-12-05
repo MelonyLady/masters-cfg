@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, Text, TouchableOpacity } from "react-native";
 
-export default function MyFirstButton(props) { 
+export default function Button2(props) { 
 
   function randomSong(){
     var words = ["Yellow", "purple", "green","Rock", 'Paper', 'Scissor']
