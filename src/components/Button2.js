@@ -8,7 +8,7 @@ export default function Button2(props) {
 
   useEffect(() => {
     console.log("Button2 component mounted successfully")
-  })
+  },[])
 
   function randomSong(){
     var words = ["Cat", "dog", "green","dragon", 'unicorn', 'beaver']
