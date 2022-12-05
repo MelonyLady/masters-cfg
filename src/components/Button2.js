@@ -20,7 +20,7 @@ export default function Button2(props) {
     var words = pokemonList
     var word = words[Math.floor(Math.random()*words.length)]
     setGeneratedWord(word)
-    console.log("Random word is: " + word)
+    console.log("Your Pokemon is: " + word)
   }
 
   function counter() {
