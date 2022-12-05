@@ -20,7 +20,7 @@ class FourthScreen extends React.Component {
   } 
  
   componentDidMount(){
-    console.log(`the third screen successfully exists: ${Date.now()}`)
+    console.log(`the fourth screen successfully exists: ${Date.now()}`)
   }
   
 

@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import MyFirstButton from '../components/myFirstButton';
 
-export default function HomeScreen({ navigation, route }) {
+export default function HomeScreen({ navigation }) {
 
 return (
   <View style={styles.container}>
