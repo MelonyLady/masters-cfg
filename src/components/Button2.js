@@ -1,10 +1,11 @@
-import { Pressable, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ListViewBase, Pressable, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, {useState, useEffect} from "react";
 
 export default function Button2(props) { 
 
   const [generatedWord, setGeneratedWord] = useState(props.details)
   const [count, setCount] = useState(0)
+  const [pokemonList, setPokemonList] = useState({})
 
   useEffect(() => {
     console.log("Button2 component mounted successfully")
@@ -15,7 +16,8 @@ export default function Button2(props) {
   }, [count])
 
   function randomSong(){
-    var words = ["Cat", "dog", "green","dragon", 'unicorn', 'beaver']
+        // var words = ["Yellow", "purple", "green","Rock", 'Paper', 'Scissor']
+    var words = pokemonList
     var word = words[Math.floor(Math.random()*words.length)]
     setGeneratedWord(word)
     console.log("Random word is: " + word)
@@ -26,6 +28,26 @@ export default function Button2(props) {
     setCount(count + 1)
     return currentCount + 1
   }
+
+  function fetchKantoPokemon(){
+   
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=10')
+    .then(response => response.json())
+    .then(allpokemon => {
+      var listNames = []
+      // console.log(allpokemon)
+      allpokemon.results.forEach(pokemon => {
+        listNames.push(pokemon.name)
+      });
+      // console.log(listNames)
+      setPokemonList(listNames) 
+    })
+  }
+
+  useEffect(()=>{
+    console.log("MyButton component mounted successfully ")
+    fetchKantoPokemon()
+  },[])
 
   return (
     <View>
