@@ -51,7 +51,7 @@ export default function App() {
             if (route.name ==="Home"){
               iconName = focused ? "ios-home" : "ios-home-outline";
             } else if (route.name ==="Login"){
-              iconName = focused ? "log-in" : "log-in-outline";
+              iconName = focused ? "logo-flickr" : "log-in-outline";
             } else if (route.name ==="About Us"){
               iconName = focused ? "disc" : "disc-outline";
             } else if (route.name ==="Third Screen"){
@@ -66,7 +66,7 @@ export default function App() {
         })}>
 
         <Tab.Screen name ="Home" component = {HomeScreen} />
-        <Tab.Screen name="Login" component={loginScreen} />
+        <Tab.Screen name="Login" component={Login} />
         <Tab.Screen name="About Us" component={AboutUsScreen} />
         <Tab.Screen name="Third Screen" component={ThirdScreen} />
         <Tab.Screen name="Fourth Screen" component={FourthScreen} />

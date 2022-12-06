@@ -20,7 +20,7 @@ class Login extends React.Component {
   } 
  
   componentDidMount(){
-    console.log(`the fourth screen successfully exists: ${Date.now()}`)
+    console.log(`Login screen successfully exists: ${Date.now()}`)
   }
   
 
@@ -69,4 +69,4 @@ class Login extends React.Component {
         }
   });
 
-  export default FourthScreen;
+  export default Login;
