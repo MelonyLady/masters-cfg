@@ -4,7 +4,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import MyFirstButton from '../components/myFirstButton';
 
 
-class FourthScreen extends React.Component {
+class Login extends React.Component {
 
   constructor(){
     super()
@@ -27,11 +27,13 @@ class FourthScreen extends React.Component {
   render(){
   return (
     <View style={styles.container}>
-      <Text style={styles.textHeader}>I am Screen 4</Text>
-      <Text style={styles.textSubheader}>Will I have meaning?</Text>
+      <Text style={styles.textHeader}>User Login</Text>
+      <Text style={styles.textSubheader}>Please enter credentials below:</Text>
       <Text></Text>
+      <Text>Username:</Text>
       <Text></Text>
-      <MyFirstButton details= "Maybe I will create a new button"></MyFirstButton>
+      <Text>Password</Text>
+      <MyFirstButton details= "I will be a login in button one day"></MyFirstButton>
       <Text></Text>
         <StatusBar style="auto" />
     </View>
