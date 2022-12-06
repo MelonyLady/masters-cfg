@@ -5,6 +5,7 @@ import HomeScreen from './src/screens/homescreen';
 // import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ThirdScreen from './src/screens/Screen3';
 import FourthScreen from './src/screens/Screen4';
+import Login from './src/screens/loginScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionic from 'react-native-vector-icons/Ionicons';
 import React from "react";
@@ -49,6 +50,8 @@ export default function App() {
             let iconName;
             if (route.name ==="Home"){
               iconName = focused ? "ios-home" : "ios-home-outline";
+            } else if (route.name ==="Login"){
+              iconName = focused ? "log-in" : "log-in-outline";
             } else if (route.name ==="About Us"){
               iconName = focused ? "disc" : "disc-outline";
             } else if (route.name ==="Third Screen"){
@@ -62,7 +65,8 @@ export default function App() {
           
         })}>
 
-        <Tab.Screen name ="Home" component = {HomeScreen} Icon= "home"/>
+        <Tab.Screen name ="Home" component = {HomeScreen} />
+        <Tab.Screen name="Login" component={loginScreen} />
         <Tab.Screen name="About Us" component={AboutUsScreen} />
         <Tab.Screen name="Third Screen" component={ThirdScreen} />
         <Tab.Screen name="Fourth Screen" component={FourthScreen} />
