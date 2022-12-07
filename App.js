@@ -9,6 +9,8 @@ import Login from './src/screens/loginScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionic from 'react-native-vector-icons/Ionicons';
 import React from "react";
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
 
 
@@ -34,9 +36,18 @@ import React from "react";
 
 const Tab = createBottomTabNavigator();
 
+function userReducer(){}
+const initialState = {username: "No user is set yet"}
+
+const store = createStore(userReducer, initialState)
+
+
+
+
 export default function App() {
 
   return (
+    <Provider store={store}>
     <NavigationContainer>
       <Tab.Navigator
          screenOptions={({route}) => ({
@@ -72,5 +83,6 @@ export default function App() {
         <Tab.Screen name="Fourth Screen" component={FourthScreen} />
       </Tab.Navigator>
     </NavigationContainer>
+    </Provider>
   );
 }
