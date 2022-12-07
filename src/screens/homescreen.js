@@ -1,14 +1,37 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import MyFirstButton from '../components/myFirstButton';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function HomeScreen({ navigation }) {
+
+  const user = useSelector((state) => state.username)
+
+  const dispatch = useDispatch()
+
+  function addUser(user){
+    const action = {
+      type: "ADD_USER",
+      payload: user
+    }
+    dispatch(action)
+  }
+
+  function removeUser(none){
+    const action = {
+      type: "REMOVE_USER",
+      payload: none
+    }
+    dispatch(action)
+  }
 
 return (
   <View style={styles.container}>
     <Text style={styles.textHeader}>Generic Home Page</Text>
     <Text></Text>
-    <MyFirstButton details= "I'm the best button!"></MyFirstButton>
+    
+    <Text style={styles.textSubheader}>User: {user}</Text>
+    <Button title={"Add user"} onPress={() => addUser("MelonyLady")}></Button>
+    <Button title={'Remove user'} onPress={() => removeUser()}></Button>
 {/*     
     <Button
     title="Go to About us"

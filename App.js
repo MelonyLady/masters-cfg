@@ -44,14 +44,14 @@ function userReducer(state, action){
       return state.username = {...state, username: action.payload}
     case "REMOVE_USER":
       console.log('remove')
-      return state
+      return state.username = {initialState}
     default:
       console.log('default')
       return state
   }
 }
 
-const initialState = {username: "No user is set yet"}
+const initialState = {username: "Need to add user"}
 
 const store = createStore(userReducer, initialState)
 
