@@ -6,23 +6,11 @@ import MyFirstButton from '../components/myFirstButton';
 
 class Login extends React.Component {
 
-  constructor(){
-    super()
-    this.state = {value:0}
-  }
 
-  update = () => {
-    this.setState({value: this.state.value + 1})
-  }
 
-  componentDidUpdate(){
-    console.log(`the new value is: ${this.state.value}`)
-  } 
- 
   componentDidMount(){
     console.log(`Login screen successfully exists: ${Date.now()}`)
   }
-  
 
   render(){
   return (
