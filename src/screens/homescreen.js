@@ -30,6 +30,7 @@ return (
     <Text></Text>
     
     <Text style={styles.textSubheader}>User: {user}</Text>
+    <Text></Text>
     <Button title={"Add user"} onPress={() => addUser("MelonyLady")}></Button>
     <Button title={'Remove user'} onPress={() => removeUser()}></Button>
 {/*     
