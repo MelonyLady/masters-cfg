@@ -11,6 +11,7 @@ import Ionic from 'react-native-vector-icons/Ionicons';
 import React from "react";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import { ActionSheetIOS } from 'react-native';
 
 
 
@@ -36,7 +37,20 @@ import { createStore } from 'redux';
 
 const Tab = createBottomTabNavigator();
 
-function userReducer(){}
+function userReducer(state, action){
+  switch(action.type) {
+    case "ADD_USER":
+      console.log('add')
+      return state.username = {...state, username: action.payload}
+    case "REMOVE_USER":
+      console.log('remove')
+      return state
+    default:
+      console.log('default')
+      return state
+  }
+}
+
 const initialState = {username: "No user is set yet"}
 
 const store = createStore(userReducer, initialState)
