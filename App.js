@@ -51,7 +51,7 @@ export default function App() {
             if (route.name ==="Home"){
               iconName = focused ? "ios-home" : "ios-home-outline";
             } else if (route.name ==="Login"){
-              iconName = focused ? "logo-flickr" : "log-in-outline";
+              iconName = focused ? "log-in" : "log-in-outline";
             } else if (route.name ==="About Us"){
               iconName = focused ? "disc" : "disc-outline";
             } else if (route.name ==="Third Screen"){
