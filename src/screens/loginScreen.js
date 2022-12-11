@@ -1,7 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Image, TextInput, TouchableOpacity, alert } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, TextInput, TouchableOpacity } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import {useState} from 'react';
+// import melonLady from '../../../assets/melonLady.png';
+
 
 
 export default function LoginScreen({ navigation }) {
@@ -10,20 +12,31 @@ export default function LoginScreen({ navigation }) {
   const [isLogin, setIsLogin] = useState(false);
  
   
-  const credentialCheck = async() => {
-     const payload ={
-      username: MelonLady,
-      password: 1234
-     }
-     setLoginStatus(true)
-     return console.log("login Success")
+  // const credentialCheck = async() => {
+  //    const payload ={
+  //     username: username,
+  //     password: password
+  //    }
+  //    setLoginStatus(true)
+  //    return console.log("login Success")
+  // };
+
+  const onLoginPressed = () => {
+    console.warn("Log in");
   };
 
+  const onForgotPasswordPressed = () => {
+    console.warn("Forgot password");
+  };
+
+  const onSignupPressed = () => {
+    console.warn("signup Pressed");
+  };
 
 
 return (
   <View style={styles.container}>
-    {/* <Image source={require('..\..\..\..\..\...\assets\melonLady.png')} /> */}
+    {/* <Image source={require('...\assets\melonLady.png')} /> */}
 
     <View style={styles.inputView}> 
     <TextInput
@@ -42,12 +55,21 @@ return (
       onChangeText={(password) => setPassword(password)}
     />
       </View>
+
     <TouchableOpacity>
-      <Text style={styles.forgot_button}>Forgot Password?</Text>
+      <Text style={styles.forgot_button}
+      onPress={onForgotPasswordPressed}>Forgot Password?</Text>
       </TouchableOpacity>
+
+      
+    <TouchableOpacity>
+      <Text style={styles.signup_button}
+      onPress={onSignupPressed}>No account? Sign up here!</Text>
+      </TouchableOpacity>
+
     <TouchableOpacity style={styles.loginBtn}>
       <Text style={styles.loginText}
-      onPress={() => credentialCheck()}>LOGIN</Text>
+      onPress={onLoginPressed}>LOGIN</Text>
       </TouchableOpacity>
 
     <StatusBar style="auto" />
@@ -102,6 +124,11 @@ return (
       marginLeft: 20,
     },
     forgot_button: {
+      height: 30,
+      marginBottom: 5,
+      color: "#be84a3"
+    },
+    signup_button: {
       height: 30,
       marginBottom: 30,
       color: "#be84a3"
