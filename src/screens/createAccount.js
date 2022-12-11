@@ -10,7 +10,6 @@ export default function CreateAccount({ navigation }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isLogin, setIsLogin] = useState(false);
-  const [passwordRepeat, setPasswordRepeat] = useState('');
  
 
 
