@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Image, TextInput, TouchableOpacity } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import {useState} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 // import melonLady from '../../../assets/melonLady.png';
 
 
@@ -9,21 +10,18 @@ import {useState} from 'react';
 export default function LoginScreen({ navigation }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [isLogin, setIsLogin] = useState(false);
+  const [token, settoken] = useState(null);
  
   
-  // const credentialCheck = async() => {
-  //    const payload ={
-  //     username: username,
-  //     password: password
-  //    }
-  //    setLoginStatus(true)
-  //    return console.log("login Success")
-  // };
 
-  const onLoginPressed = () => {
+  const onLoginPressed = async() => {
+    await AsyncStorage.setItem('token', username)
+    if (username === 'MelonLady' && password === '1234'){
     console.warn("Log in")
     navigation.navigate('Home');
+    } else {
+      console.warn('Please try again')
+    }
   };
 
   const onForgotPasswordPressed = () => {
@@ -36,6 +34,18 @@ export default function LoginScreen({ navigation }) {
   };
 
 
+  const tokenLogin = async() => {
+    const value = await AsyncStorage.getItem('token')
+    if (value !== null) {
+      navigation.navigate('Home')
+      console.log('You are logged in')
+    }else {
+      console.warn('You have not been successful, please try again')
+    }
+  };
+
+tokenLogin()
+
 return (
   <View style={styles.container}>
     {/* <Image source={require('...\assets\melonLady.png')} /> */}
@@ -45,7 +55,7 @@ return (
     style={styles.textInput}
     placeholder="Username" // MelonLady
     placeholderTextColor="#003f5c"
-    onChangeText={(username) => setUsername(username)}
+    onChangeText={(value) => setUsername(value)}
   />
     </View>
     <View style={styles.inputView}>
@@ -54,7 +64,7 @@ return (
       placeholder="Password" // 1234
       placeholderTextColor="#003f5c"
       secureTextEntry={true}
-      onChangeText={(password) => setPassword(password)}
+      onChangeText={(value) => setPassword(value)}
     />
       </View>
 

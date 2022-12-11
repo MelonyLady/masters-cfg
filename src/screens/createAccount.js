@@ -14,7 +14,7 @@ export default function CreateAccount({ navigation }) {
 
 
   const onRegisterPressed = () => {
-    console.warn("Account Registerred");
+    console.warn("Account Registered");
   };
 
   const onPrivacyPressed = () => {

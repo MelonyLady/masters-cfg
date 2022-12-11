@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function HomeScreen({ navigation }) {
 
@@ -24,6 +25,11 @@ export default function HomeScreen({ navigation }) {
     dispatch(action)
   }
 
+  const logout = async() => {
+    await AsyncStorage.removeItem('token')
+    navigation.navigate('Login')
+  }
+
 return (
   <View style={styles.container}>
     <Text style={styles.textHeader}>Generic Home Page</Text>
@@ -31,6 +37,7 @@ return (
     
     <Text style={styles.textSubheader}>User: {user}</Text>
     <Text></Text>
+    <Button onPress={logout} title="Logout"/>
     <Button title={"Add user"} onPress={() => addUser("MelonyLady")}></Button>
     <Button title={'Remove user'} onPress={() => removeUser()}></Button>
 {/*     
