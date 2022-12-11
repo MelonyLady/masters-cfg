@@ -1,34 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
-import MyFirstButton from '../components/myFirstButton';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
-
-class Login extends React.Component {
+export default function loginScreen({ navigation }) {
 
 
 
-  componentDidMount(){
-    console.log(`Login screen successfully exists: ${Date.now()}`)
-  }
-
-  render(){
-  return (
-    <View style={styles.container}>
-      <Text style={styles.textHeader}>User Login</Text>
-      <Text style={styles.textSubheader}>Please enter credentials below:</Text>
-      <Text></Text>
-      <Text>Username:</Text>
-      <Text></Text>
-      <Text>Password</Text>
-      <MyFirstButton details= "I will be a login in button one day"></MyFirstButton>
-      <Text></Text>
-        <StatusBar style="auto" />
-    </View>
-  )}
+return (
+  <View style={styles.container}>
+    <Text style={styles.textHeader}>Please Login below:</Text>
+    <Text></Text>
+    
+    <Text style={styles.textSubheader}>Username: </Text>
+    <Text></Text>
+    <Text style={styles.textSubheader}>Password: </Text>
+    <Text></Text>
+    <StatusBar style="auto" />
+  </View>
+);
 }
-
-
+  
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -42,7 +33,7 @@ class Login extends React.Component {
       fontSize: 26,
       textDecorationLine: 'underline',
       lineHeight: 30
-
+      
       },
     textSubheader: {
       color: '#be84a3',
@@ -56,5 +47,3 @@ class Login extends React.Component {
       fontSize: 19,
         }
   });
-
-  export default Login;
