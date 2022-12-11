@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function LoginScreen({ navigation }) {
@@ -8,6 +8,7 @@ export default function LoginScreen({ navigation }) {
 
 return (
   <View style={styles.container}>
+    <Image source={require(".../assets/MelonLady.png")} />
     <Text style={styles.textHeader}>Please Login below:</Text>
     <Text></Text>
     
