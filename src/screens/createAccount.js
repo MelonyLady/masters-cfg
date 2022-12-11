@@ -2,60 +2,40 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Image, TextInput, TouchableOpacity } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import {useState} from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 // import melonLady from '../../../assets/melonLady.png';
 
 
 
-export default function LoginScreen({ navigation }) {
+export default function CreateAccount({ navigation }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [token, settoken] = useState(null);
+  const [isLogin, setIsLogin] = useState(false);
  
-  
 
-  const onLoginPressed = async() => {
-    await AsyncStorage.setItem('token', username)
-    if (username === 'MelonLady' && password === '1234'){
-    console.warn("Log in")
-    navigation.navigate('Home');
-    } else {
-      console.warn('Please try again')
-    }
+
+  const onRegisterPressed = () => {
+    console.warn("Account Registered");
   };
 
-  const onForgotPasswordPressed = () => {
-    console.warn("Forgot password");
+  const onPrivacyPressed = () => {
+    console.warn("some form of info");
   };
 
-  const onSignupPressed = () => {
-    console.warn("go to signup!!")
-    navigation.navigate('Sign Up');
+const onHaveAccount= () => {
+    console.warn("go to login!!")
+    navigation.navigate('Login');
   };
-
-
-  const tokenLogin = async() => {
-    const value = await AsyncStorage.getItem('token')
-    if (value !== null) {
-      navigation.navigate('Home')
-      console.log('You are logged in')
-    }else {
-      console.warn('You have not been successful, please try again')
-    }
-  };
-
-tokenLogin()
 
 return (
   <View style={styles.container}>
-    {/* <Image source={require('...\assets\melonLady.png')} /> */}
+    <Text style={styles.textHeader}> CreateAccount </Text>
 
     <View style={styles.inputView}> 
     <TextInput
     style={styles.textInput}
     placeholder="Username" // MelonLady
     placeholderTextColor="#003f5c"
-    onChangeText={(value) => setUsername(value)}
+    onChangeText={(username) => setUsername(username)}
   />
     </View>
     <View style={styles.inputView}>
@@ -64,25 +44,27 @@ return (
       placeholder="Password" // 1234
       placeholderTextColor="#003f5c"
       secureTextEntry={true}
-      onChangeText={(value) => setPassword(value)}
+      onChangeText={(password) => setPassword(password)}
     />
+ 
+
       </View>
-
-    <TouchableOpacity>
-      <Text style={styles.forgot_button}
-      onPress={onForgotPasswordPressed}>Forgot Password?</Text>
-      </TouchableOpacity>
-
-      
-    <TouchableOpacity>
-      <Text style={styles.signup_button}
-      onPress={onSignupPressed}>No account? Sign up here!</Text>
-      </TouchableOpacity>
 
     <TouchableOpacity style={styles.loginBtn}>
       <Text style={styles.loginText}
-      onPress={onLoginPressed}>LOGIN</Text>
+      onPress={onRegisterPressed}>Register</Text>
       </TouchableOpacity>
+
+    <TouchableOpacity>
+      <Text style={styles.signup_button}
+      onPress={onPrivacyPressed}>By registering you agree to terms of user and privacy policy :P </Text>
+      </TouchableOpacity>
+
+    <TouchableOpacity>
+      <Text style={styles.signup_button}
+      onPress={onHaveAccount}>Have an account sign in!</Text>
+      </TouchableOpacity>
+
 
     <StatusBar style="auto" />
   </View>
@@ -103,7 +85,8 @@ return (
       fontWeight: 'bold',
       fontSize: 26,
       textDecorationLine: 'underline',
-      lineHeight: 30
+      marginBottom: 10
+
       
       },
     textSubheader: {
@@ -153,5 +136,6 @@ return (
       justifyContent:"center",
       marginTop:40,
       backgroundColor:"#be84a3",
+      marginBottom: 5,
     }
   });
