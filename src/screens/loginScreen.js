@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, Button, Image, TextInput, TouchableOpacity } fr
 import { useDispatch, useSelector } from 'react-redux';
 import {useState} from 'react';
 // import melonLady from '../../../assets/melonLady.png';
-import {useForm, Controller} from 'react-hook-form';
 
 
 
@@ -22,14 +21,8 @@ export default function LoginScreen({ navigation }) {
   //    return console.log("login Success")
   // };
 
-  const {
-    control,
-    handleSubmit, 
-    formState: {errors},
-  } = useForm();
-
-  const onLoginPressed = (data) => {
-    console.log(data);
+  const onLoginPressed = () => {
+    console.warn("Log in")
     navigation.navigate('Home');
   };
 
@@ -47,55 +40,23 @@ return (
   <View style={styles.container}>
     {/* <Image source={require('...\assets\melonLady.png')} /> */}
 
-    
-    <Controller 
-      control={control}
-      name={username}
-      rules={{required: 'Username is required'}}
-      render={({field: {value, onChange, onBlur}, fieldState: {error} }) => (
-        <>
-        <View 
-          style={[
-            styles.inputView,
-            {borderColor: error ? 'red' : 'gray'}
-            ]}>
-          <TextInput
-            value={value}
-            onBlur={onBlur}
-            onChangeText={(username) => setUsername(username)} 
-            placeholder="Username" // MelonLady
-            placeholderTextColor="#003f5c"
-            />
-            </View>
-            {error && (
-              <Text style={{color: 'red', alignSelf:'stretch'}}>{error.message || 'Error'}</Text>
-          )}
-          </>
-          )}
-       />
-    
-
-
-    
-    <Controller 
-      control={control}
-      name={password}
-      rules={{required: true}}
-      render={({field: {value, onChange, onBlur}}) => (
-        <View style={styles.inputView}>
-         <TextInput
-          value={value}
-          onBlur={onBlur}
-          style={styles.textInput}
-          placeholder="Password" // 1234
-          placeholderTextColor="#003f5c"
-          onChangeText={(password) => setPassword(password)}
-          secureTextEntry
-          />
-           </View>
-          )}
-       />
-     
+    <View style={styles.inputView}> 
+    <TextInput
+    style={styles.textInput}
+    placeholder="Username" // MelonLady
+    placeholderTextColor="#003f5c"
+    onChangeText={(username) => setUsername(username)}
+  />
+    </View>
+    <View style={styles.inputView}>
+    <TextInput
+      style={styles.textInput}
+      placeholder="Password" // 1234
+      placeholderTextColor="#003f5c"
+      secureTextEntry={true}
+      onChangeText={(password) => setPassword(password)}
+    />
+      </View>
 
     <TouchableOpacity>
       <Text style={styles.forgot_button}
@@ -110,7 +71,7 @@ return (
 
     <TouchableOpacity style={styles.loginBtn}>
       <Text style={styles.loginText}
-      onPress={handleSubmit(onLoginPressed)}>LOGIN</Text>
+      onPress={onLoginPressed}>LOGIN</Text>
       </TouchableOpacity>
 
     <StatusBar style="auto" />
@@ -152,8 +113,6 @@ return (
     },
     inputView: {
       backgroundColor: "#A991C8",
-      borderColor: "gray",
-      borderWidth: 1,
       borderRadius: 30,
       width: "70%",
       height: 45,
