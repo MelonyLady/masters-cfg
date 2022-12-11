@@ -11,6 +11,7 @@ import Ionic from 'react-native-vector-icons/Ionicons';
 import React from "react";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import CreateAccount from './src/screens/createAccount';
 
 
 
@@ -76,12 +77,14 @@ export default function App() {
               iconName = focused ? "ios-home" : "ios-home-outline";
             } else if (route.name ==="Login"){
               iconName = focused ? "log-in" : "log-in-outline";
+            } else if (route.name ==="Sign Up"){
+              iconName = focused ? "happy" : "happy-outline";
             } else if (route.name ==="About Us"){
               iconName = focused ? "disc" : "disc-outline";
             } else if (route.name ==="Third Screen"){
               iconName = focused ? "flower-sharp" : "flower-outline";
-            } else if (route.name ==="Fourth Screen"){
-              iconName = focused ? "happy" : "happy-outline";
+            // } else if (route.name ==="Fourth Screen"){
+            //   iconName = focused ? "happy" : "happy-outline";
             }
             return <Ionic name={iconName} size={size} colour={colour}/>
           },
@@ -91,9 +94,10 @@ export default function App() {
 
         <Tab.Screen name ="Home" component = {HomeScreen} />
         <Tab.Screen name="Login" component={Login} />
+        <Tab.Screen name="Sign Up" component={CreateAccount} />
         <Tab.Screen name="About Us" component={AboutUsScreen} />
         <Tab.Screen name="Third Screen" component={ThirdScreen} />
-        <Tab.Screen name="Fourth Screen" component={FourthScreen} />
+        {/* <Tab.Screen name="Fourth Screen" component={FourthScreen} /> */}
       </Tab.Navigator>
     </NavigationContainer>
     </Provider>
