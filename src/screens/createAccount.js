@@ -47,13 +47,8 @@ return (
       secureTextEntry={true}
       onChangeText={(password) => setPassword(password)}
     />
-    <TextInput
-    style={styles.textInput}
-    placeholder="Repeat Password" // 1234
-    placeholderTextColor="#003f5c"
-    secureTextEntry={true}
-    onChangeText={(passwordRepeat) => setPasswordRepeat(passwordRepeat)}
-  />
+ 
+
       </View>
 
     <TouchableOpacity style={styles.loginBtn}>
