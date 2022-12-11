@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
-export default function loginScreen({ navigation }) {
+export default function LoginScreen({ navigation }) {
 
 
 
