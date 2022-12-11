@@ -3,33 +3,32 @@ import { StyleSheet, Text, View, Button, Image, TextInput, TouchableOpacity, ale
 import { useDispatch, useSelector } from 'react-redux';
 import {useState} from 'react';
 
+
 export default function LoginScreen({ navigation }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [successCriteria, setSuccesCriteria] = useState('');
+  const [isLogin, setIsLogin] = useState(false);
  
   
-  const credentialCheck = () => {
-    setSuccesCriteria('');
-    if (!username) {
-      alert('please enter username');
-      return;
-    }
-    if (!password) {
-      alert('please enter paswword')
-    };
-  }
+  const credentialCheck = async() => {
+     const payload ={
+      username: MelonLady,
+      password: 1234
+     }
+     setLoginStatus(true)
+     return console.log("login Success")
+  };
 
 
 
 return (
   <View style={styles.container}>
-    {/* <Image source={require("../assets/MelonLady.png")} /> */}
+    <Image source={require('../melonLady.png')} />
 
     <View style={styles.inputView}> 
     <TextInput
     style={styles.textInput}
-    placeholder="Username"
+    placeholder="Username" // MelonLady
     placeholderTextColor="#003f5c"
     onChangeText={(username) => setUsername(username)}
   />
@@ -37,7 +36,7 @@ return (
     <View style={styles.inputView}>
     <TextInput
       style={styles.textInput}
-      placeholder="Password."
+      placeholder="Password" // 1234
       placeholderTextColor="#003f5c"
       secureTextEntry={true}
       onChangeText={(password) => setPassword(password)}
@@ -48,7 +47,7 @@ return (
       </TouchableOpacity>
     <TouchableOpacity style={styles.loginBtn}>
       <Text style={styles.loginText}
-      onPRess={credentialCheck}>LOGIN</Text>
+      onPress={() => credentialCheck()}>LOGIN</Text>
       </TouchableOpacity>
 
     <StatusBar style="auto" />
