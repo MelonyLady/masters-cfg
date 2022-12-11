@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, Image, TextInput, TouchableOpacity } fr
 import { useDispatch, useSelector } from 'react-redux';
 import {useState} from 'react';
 // import melonLady from '../../../assets/melonLady.png';
+import {useForm, Controller} from 'react-hook-form';
 
 
 
@@ -21,8 +22,11 @@ export default function LoginScreen({ navigation }) {
   //    return console.log("login Success")
   // };
 
-  const onLoginPressed = () => {
-    console.warn("Log in");
+  const {handleSubmit, control} = useForm();
+
+  const onLoginPressed = (data) => {
+    console.log(data)
+    navigation.navigate('Home');
   };
 
   const onForgotPasswordPressed = () => {
@@ -30,7 +34,8 @@ export default function LoginScreen({ navigation }) {
   };
 
   const onSignupPressed = () => {
-    console.warn("signup Pressed");
+    console.warn("go to signup!!")
+    navigation.navigate('Sign Up');
   };
 
 
@@ -38,13 +43,18 @@ return (
   <View style={styles.container}>
     {/* <Image source={require('...\assets\melonLady.png')} /> */}
 
-    <View style={styles.inputView}> 
-    <TextInput
-    style={styles.textInput}
-    placeholder="Username" // MelonLady
-    placeholderTextColor="#003f5c"
-    onChangeText={(username) => setUsername(username)}
-  />
+    <View style={styles.inputView}>
+    <Controller 
+      control={control}
+      name="username"
+
+      render={() => <TextInput
+      style={styles.textInput}
+      placeholder="Username" // MelonLady
+      placeholderTextColor="#003f5c"
+      onChangeText={(username) => setUsername(username)} />}
+    />
+  
     </View>
     <View style={styles.inputView}>
     <TextInput
@@ -69,7 +79,7 @@ return (
 
     <TouchableOpacity style={styles.loginBtn}>
       <Text style={styles.loginText}
-      onPress={onLoginPressed}>LOGIN</Text>
+      onPress={handleSubmit(onLoginPressed)}>LOGIN</Text>
       </TouchableOpacity>
 
     <StatusBar style="auto" />

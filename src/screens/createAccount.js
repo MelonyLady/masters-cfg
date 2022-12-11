@@ -12,7 +12,6 @@ export default function CreateAccount({ navigation }) {
   const [isLogin, setIsLogin] = useState(false);
   const [passwordRepeat, setPasswordRepeat] = useState('');
  
-  
 
 
   const onRegisterPressed = () => {
@@ -24,7 +23,8 @@ export default function CreateAccount({ navigation }) {
   };
 
 const onHaveAccount= () => {
-    console.warn("you have an account");
+    console.warn("go to login!!")
+    navigation.navigate('Login');
   };
 
 return (
