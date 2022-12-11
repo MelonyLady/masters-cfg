@@ -23,7 +23,7 @@ export default function LoginScreen({ navigation }) {
 
 return (
   <View style={styles.container}>
-    <Image source={require('../melonLady.png')} />
+    {/* <Image source={require('..\..\..\..\..\...\assets\melonLady.png')} /> */}
 
     <View style={styles.inputView}> 
     <TextInput
