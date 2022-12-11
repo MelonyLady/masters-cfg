@@ -1,19 +1,20 @@
 
 import { NavigationContainer, TabRouter } from '@react-navigation/native';
-import AboutUsScreen from './src/screens/AboutUsScreen';
-import HomeScreen from './src/screens/homescreen';
 // import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import ThirdScreen from './src/screens/Screen3';
-import FourthScreen from './src/screens/Screen4';
-import Login from './src/screens/loginScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionic from 'react-native-vector-icons/Ionicons';
 import React from "react";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+
+
+//SCREENS
+import AboutUsScreen from './src/screens/AboutUsScreen';
+import HomeScreen from './src/screens/homescreen';
+import ThirdScreen from './src/screens/Screen3';
+import FourthScreen from './src/screens/Screen4';
+import Login from './src/screens/loginScreen';
 import CreateAccount from './src/screens/createAccount';
-
-
 
 // const Stack = createNativeStackNavigator();
 
