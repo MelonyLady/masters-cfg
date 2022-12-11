@@ -11,7 +11,6 @@ import Ionic from 'react-native-vector-icons/Ionicons';
 import React from "react";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { ActionSheetIOS } from 'react-native';
 
 
 
