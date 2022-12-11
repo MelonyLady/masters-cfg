@@ -25,7 +25,7 @@ export default function LoginScreen({ navigation }) {
   const {handleSubmit, control} = useForm();
 
   const onLoginPressed = (data) => {
-    console.log(data)
+    console.log(data);
     navigation.navigate('Home');
   };
 
@@ -48,22 +48,35 @@ return (
       control={control}
       name="username"
 
-      render={() => <TextInput
-      style={styles.textInput}
-      placeholder="Username" // MelonLady
-      placeholderTextColor="#003f5c"
-      onChangeText={(username) => setUsername(username)} />}
-    />
+      render={({field: {value, onChange, onBlur}}) => (
+         <TextInput
+          value={value}
+          onBlur={onBlur}
+          style={styles.textInput}
+          placeholder="Username" // MelonLady
+          placeholderTextColor="#003f5c"
+          onChangeText={(username) => setUsername(username)} 
+          />
+          )}
+       />
   
     </View>
     <View style={styles.inputView}>
-    <TextInput
-      style={styles.textInput}
-      placeholder="Password" // 1234
-      placeholderTextColor="#003f5c"
-      secureTextEntry={true}
-      onChangeText={(password) => setPassword(password)}
-    />
+    <Controller 
+      control={control}
+      name="username"
+
+      render={({field: {value, onChange, onBlur}}) => (
+         <TextInput
+          value={value}
+          onBlur={onBlur}
+          style={styles.textInput}
+          placeholder="Password" // 1234
+          placeholderTextColor="#003f5c"
+          onChangeText={(password) => setPassword(password)}
+          />
+          )}
+       />
       </View>
 
     <TouchableOpacity>
