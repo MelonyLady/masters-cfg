@@ -22,7 +22,11 @@ export default function LoginScreen({ navigation }) {
   //    return console.log("login Success")
   // };
 
-  const {handleSubmit, control} = useForm();
+  const {
+    control,
+    handleSubmit, 
+    formState: {errors},
+  } = useForm();
 
   const onLoginPressed = (data) => {
     console.log(data);
@@ -43,30 +47,42 @@ return (
   <View style={styles.container}>
     {/* <Image source={require('...\assets\melonLady.png')} /> */}
 
-    <View style={styles.inputView}>
+    
     <Controller 
       control={control}
-      name="username"
-
-      render={({field: {value, onChange, onBlur}}) => (
-         <TextInput
-          value={value}
-          onBlur={onBlur}
-          style={styles.textInput}
-          placeholder="Username" // MelonLady
-          placeholderTextColor="#003f5c"
-          onChangeText={(username) => setUsername(username)} 
-          />
+      name={username}
+      rules={{required: 'Username is required'}}
+      render={({field: {value, onChange, onBlur}, fieldState: {error} }) => (
+        <>
+        <View 
+          style={[
+            styles.inputView,
+            {borderColor: error ? 'red' : 'gray'}
+            ]}>
+          <TextInput
+            value={value}
+            onBlur={onBlur}
+            onChangeText={(username) => setUsername(username)} 
+            placeholder="Username" // MelonLady
+            placeholderTextColor="#003f5c"
+            />
+            </View>
+            {error && (
+              <Text style={{color: 'red', alignSelf:'stretch'}}>{error.message || 'Error'}</Text>
+          )}
+          </>
           )}
        />
-  
-    </View>
-    <View style={styles.inputView}>
+    
+
+
+    
     <Controller 
       control={control}
-      name="username"
-
+      name={password}
+      rules={{required: true}}
       render={({field: {value, onChange, onBlur}}) => (
+        <View style={styles.inputView}>
          <TextInput
           value={value}
           onBlur={onBlur}
@@ -74,10 +90,12 @@ return (
           placeholder="Password" // 1234
           placeholderTextColor="#003f5c"
           onChangeText={(password) => setPassword(password)}
+          secureTextEntry
           />
+           </View>
           )}
        />
-      </View>
+     
 
     <TouchableOpacity>
       <Text style={styles.forgot_button}
@@ -134,6 +152,8 @@ return (
     },
     inputView: {
       backgroundColor: "#A991C8",
+      borderColor: "gray",
+      borderWidth: 1,
       borderRadius: 30,
       width: "70%",
       height: 45,
